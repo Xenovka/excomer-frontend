@@ -1,6 +1,8 @@
 import styled from "styled-components";
 
-export const CartWrapper = styled.div`
+const { motion } = require("framer-motion");
+
+export const CartWrapper = styled(motion.div)`
   position: fixed;
   top: 0;
   right: 0;
@@ -13,7 +15,7 @@ export const CartWrapper = styled.div`
   /* display: none; */
 `;
 
-export const CartStyle = styled.div`
+export const CartStyle = styled(motion.div)`
   width: 40%;
   background: #f1f1f1;
   padding: 2rem 5rem;
@@ -21,7 +23,7 @@ export const CartStyle = styled.div`
   position: relative;
 `;
 
-export const Card = styled.div`
+export const Card = styled(motion.div)`
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -36,7 +38,7 @@ export const Card = styled.div`
   }
 `;
 
-export const CardInfo = styled.div`
+export const CardInfo = styled(motion.div)`
   width: 50%;
 
   div {
@@ -45,17 +47,16 @@ export const CardInfo = styled.div`
   }
 `;
 
-export const EmptyStyle = styled.div`
+export const EmptyStyle = styled(motion.div)`
   position: absolute;
   top: 0;
-  left: 50%;
   transform: translate(-50%, 0%);
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   height: 100%;
-  width: 100%;
+  width: 80%;
 
   h1 {
     font-size: 1.3rem;
@@ -68,7 +69,7 @@ export const EmptyStyle = styled.div`
   }
 `;
 
-export const Checkout = styled.div`
+export const Checkout = styled(motion.div)`
   button {
     background: var(--primary);
     padding: 1rem 2rem;
