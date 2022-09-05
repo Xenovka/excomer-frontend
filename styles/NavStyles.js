@@ -6,6 +6,7 @@ export const NavStyles = styled.nav`
   justify-content: space-between;
   align-items: center;
   font-size: 1rem;
+  cursor: pointer;
 
   a {
     font-size: 1.2rem;
