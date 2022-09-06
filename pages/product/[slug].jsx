@@ -1,6 +1,7 @@
 import React from "react";
 import { useQuery } from "urql";
 import { useRouter } from "next/router";
+import toast from "react-hot-toast";
 
 import { GET_PRODUCT_QUERY } from "../../lib/query";
 import { useStateContext } from "../../lib/context";
@@ -25,6 +26,10 @@ export default function ProductDetails() {
 
   const { title, description, image } = data.products.data[0].attributes;
 
+  const notify = () => {
+    toast.success(`${title} added to your cart.`, { duration: 1500 });
+  };
+
   return (
     <DetailsStyle>
       <img src={image.data.attributes.formats.medium.url} alt={title} />
@@ -43,7 +48,14 @@ export default function ProductDetails() {
             </button>
           </Quantity>
         </div>
-        <Buy onClick={() => onAdd(data.products.data[0].attributes, qty)}>Add to cart</Buy>
+        <Buy
+          onClick={() => {
+            onAdd(data.products.data[0].attributes, qty);
+            notify();
+          }}
+        >
+          Add to cart
+        </Buy>
       </ProductInfo>
     </DetailsStyle>
   );

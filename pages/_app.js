@@ -1,6 +1,7 @@
 import "../styles/globals.css";
 import { Provider, createClient } from "urql";
 import { UserProvider } from "@auth0/nextjs-auth0";
+import { Toaster } from "react-hot-toast";
 
 import Nav from "../components/Nav";
 import { StateContext } from "./../lib/context";
@@ -12,6 +13,7 @@ function MyApp({ Component, pageProps }) {
     <UserProvider>
       <StateContext>
         <Provider value={client}>
+          <Toaster />
           <Nav />
           <Component {...pageProps} />
         </Provider>
