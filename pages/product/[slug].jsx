@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useQuery } from "urql";
 import { useRouter } from "next/router";
 import toast from "react-hot-toast";
@@ -10,7 +10,11 @@ import { DetailsStyle, ProductInfo, Quantity, Buy } from "../../styles/ProductDe
 import { AiFillPlusCircle, AiFillMinusCircle } from "react-icons/ai";
 
 export default function ProductDetails() {
-  const { qty, increaseQty, decreaseQty, onAdd } = useStateContext();
+  const { qty, increaseQty, decreaseQty, onAdd, setQty } = useStateContext();
+
+  useEffect(() => {
+    setQty(1);
+  }, []);
 
   const { query } = useRouter();
 
